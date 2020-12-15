@@ -1,8 +1,8 @@
 require("dotenv").config();
-//const fs = require('fs');
+const fs = require('fs');
 const express = require('express');
 const app = express();
-//const { spawn } = require('child_process')
+const { spawn } = require('child_process')
 const Joi = require('joi');
 const userRouter = require("./api/users/user.router");
 const productRouter = require("./api/products/product.router");
@@ -14,7 +14,7 @@ app.use("/api/products", productRouter);
 app.use("/api/posts", postRouter);
 app.use("/api/comments", commentRouter);
 
-/*app.post('/', (req, res) => {
+app.post('/', (req, res) => {
     let dataToSend
     let largeDataSet = []
     const body = req.body;
@@ -88,7 +88,7 @@ app.use("/api/comments", commentRouter);
     streamObj.push(null)
     var uniqueRandomImageName= 'image-' + uniqueSHA1String + '.jpg'  ;
     streamObj.pipe(fs.createWriteStream(uniqueRandomImageName));
-  })*/
+  })
 
 
 app.listen(process.env.APP_PORT, () =>{
